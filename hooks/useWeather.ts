@@ -13,7 +13,11 @@ export const useWeather = () => {
       const data = await fetchWeather(city);
       setWeather(data);
     } catch (err) {
-      setError("Failed to fetch weather data.");
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
     } finally {
       setLoading(false);
     }

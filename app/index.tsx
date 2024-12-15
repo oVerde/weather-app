@@ -12,7 +12,7 @@ export default function WeatherScreen() {
   return (
     <YStack
       f={1}
-      onTouchStart={() => Keyboard.dismiss()}
+      onTouchEndCapture={() => Keyboard.dismiss()}
       ai="center"
       p="$10"
       bg="$background"
