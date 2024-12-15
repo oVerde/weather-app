@@ -18,7 +18,7 @@ export const fetchWeather = async (city: string): Promise<WeatherData> => {
         params: {
           q: city,
           appid: API_KEY,
-          units: "metric",
+          units: "imperial",
         },
         timeout: 5000, // 5 seconds timeout
       }),
@@ -26,7 +26,7 @@ export const fetchWeather = async (city: string): Promise<WeatherData> => {
         params: {
           q: city,
           appid: API_KEY,
-          units: "metric",
+          units: "imperial",
         },
         timeout: 5000, // 5 seconds timeout
       }),
@@ -72,7 +72,7 @@ export const fetchWeather = async (city: string): Promise<WeatherData> => {
             hour: "2-digit",
             minute: "2-digit",
           }),
-          temperature: Math.round(item.main.temp * 10) / 10,
+          temperature: item.main.temp.toFixed(1),
         };
       }),
     };
