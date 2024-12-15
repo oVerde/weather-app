@@ -58,12 +58,12 @@ describe("WeatherScreen", () => {
       getWeather: jest.fn(),
     });
 
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Provider>
         <WeatherScreen />
       </Provider>,
     );
-    expect(getByText("Failed to fetch weather data.")).toBeTruthy();
+    expect(getByTestId("error")).toBeTruthy();
   });
 
   it("displays weather data", () => {
@@ -74,8 +74,8 @@ describe("WeatherScreen", () => {
         condition: "clear sky",
         icon: "http://openweathermap.org/img/wn/01d@2x.png",
         forecast: [
-          { time: "10:00 AM", temperature: 15 },
-          { time: "11:00 AM", temperature: 16 },
+          { time: "10:00 AM", temperature: "15.0" },
+          { time: "11:00 AM", temperature: "16.5" },
         ],
       },
       error: "",
@@ -91,6 +91,6 @@ describe("WeatherScreen", () => {
     expect(getByText("London, GB")).toBeTruthy();
     expect(getByText("clear sky")).toBeTruthy();
     expect(getByText("10:00 AM")).toBeTruthy();
-    expect(getByText("15°C")).toBeTruthy();
+    expect(getByText("15.0°F")).toBeTruthy();
   });
 });

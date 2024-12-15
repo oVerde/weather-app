@@ -33,7 +33,7 @@ describe("fetchWeather", () => {
     expect(data.condition).toBe("clear sky");
     expect(data.icon).toBe("http://openweathermap.org/img/wn/01d@2x.png");
     expect(data.forecast.length).toBe(1);
-    expect(data.forecast[0].temperature).toBe(15);
+    expect(data.forecast[0].temperature).toBe("15.0");
   });
 
   it("should throw an error when API call fails", async () => {

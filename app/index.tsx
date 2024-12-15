@@ -25,7 +25,11 @@ export default function WeatherScreen() {
         onFetch={() => getWeather(city)}
       />
       {loading && <Text>Loading...</Text>}
-      {error && <Text color="$red10">{error}</Text>}
+      {error && (
+        <Text testID="error" color="$red10">
+          {error}
+        </Text>
+      )}
       {weather && <WeatherDisplay weather={weather} />}
     </YStack>
   );
