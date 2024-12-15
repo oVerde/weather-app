@@ -12,12 +12,12 @@ export default function WeatherScreen() {
   return (
     <YStack
       f={1}
-      onTouchEndCapture={() => Keyboard.dismiss()}
       ai="center"
       p="$10"
       bg="$background"
       pt="$15"
       gap="$2"
+      onPress={() => Keyboard.dismiss()}
     >
       <WeatherInput
         city={city}
