@@ -9,7 +9,7 @@ export interface WeatherData {
 }
 
 const API_KEY =
-  process.env.OPENWEATHER_API_KEY || "36380d2bbe23947714ff21d914a5c5b9";
+  process.env.OPENWEATHER_API_KEY || "36380d2bbe23947714ff21d914a5c5b9"; // NOTE: intentional static API
 
 export const fetchWeather = async (city: string): Promise<WeatherData> => {
   try {
