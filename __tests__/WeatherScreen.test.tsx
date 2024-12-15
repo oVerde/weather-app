@@ -1,3 +1,4 @@
+import "@testing-library/jest-native/extend-expect";
 import { render, fireEvent } from "@testing-library/react-native";
 import WeatherScreen from "../app/index";
 import * as weatherHook from "../hooks/useWeather";
@@ -19,19 +20,20 @@ describe("WeatherScreen", () => {
       getWeather: mockGetWeather,
     });
 
-    const { getByPlaceholderText, getByText } = render(
+    const { getByTestId } = render(
       <Provider>
         <WeatherScreen />
       </Provider>,
     );
 
-    const input = getByPlaceholderText("Enter city name");
-    const button = getByText("Fetch");
+    const input = getByTestId("city-input");
+    const button = getByTestId("fetch-button");
 
     fireEvent.changeText(input, "London");
     fireEvent.press(button);
 
     expect(mockGetWeather).toHaveBeenCalledWith("London");
+    expect(getByTestId("city-input").props.value).toBe("London");
   });
 
   it("displays loading indicator", () => {
@@ -83,14 +85,14 @@ describe("WeatherScreen", () => {
       getWeather: jest.fn(),
     });
 
-    const { getByText } = render(
+    const { getByTestId, getByText } = render(
       <Provider>
         <WeatherScreen />
       </Provider>,
     );
-    expect(getByText("London, GB")).toBeTruthy();
-    expect(getByText("clear sky")).toBeTruthy();
+    expect(getByTestId("city-country")).toHaveTextContent("London, GB");
+    expect(getByTestId("weather-condition")).toHaveTextContent("clear sky");
     expect(getByText("10:00 AM")).toBeTruthy();
-    expect(getByText("15.0°F")).toBeTruthy();
+    expect(getByTestId("temperature-0")).toHaveTextContent("15.0°F");
   });
 });

@@ -25,6 +25,7 @@ const WeatherInput: React.FC<WeatherInputProps> = ({
   return (
     <XStack gap="$4" width="100%" maxWidth={400}>
       <Input
+        testID="city-input"
         ref={inputRef}
         placeholder="Enter city name"
         value={city}
@@ -37,7 +38,7 @@ const WeatherInput: React.FC<WeatherInputProps> = ({
         padding="$3"
         flex={1}
       />
-      <Button onPress={handleFetch} disabled={!city}>
+      <Button testID="fetch-button" onPress={handleFetch} disabled={!city}>
         Fetch
       </Button>
     </XStack>

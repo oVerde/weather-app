@@ -8,18 +8,25 @@ interface WeatherDisplayProps {
 
 const WeatherDisplay: React.FC<WeatherDisplayProps> = ({ weather }) => (
   <YStack gap="$2" ai="center">
-    <Text fontSize="$4" fontWeight="bold">
+    <Text testID="city-country" fontSize="$4" fontWeight="bold">
       {weather.city}, {weather.country}
     </Text>
     <XStack ai="center" gap="$2">
-      <Image source={{ uri: weather.icon }} width={50} height={50} />
-      <Text fontSize="$4">{weather.condition}</Text>
+      <Image
+        testID="weather-icon"
+        source={{ uri: weather.icon }}
+        width={50}
+        height={50}
+      />
+      <Text testID="weather-condition" fontSize="$4">
+        {weather.condition}
+      </Text>
     </XStack>
     <YStack gap="$1">
       {weather.forecast.map((item, index) => (
         <XStack key={index} gap="$4" justifyContent="space-between">
           <Text>{item.time}</Text>
-          <Text>{item.temperature}°F</Text>
+          <Text testID={`temperature-${index}`}>{item.temperature}°F</Text>
         </XStack>
       ))}
     </YStack>
