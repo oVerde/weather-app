@@ -7,7 +7,7 @@ Welcome to the Weather App! This project is a modern, responsive weather applica
 ## Features
 
 - **Real-Time Weather Data**: Fetches current weather conditions, including temperature, humidity, wind speed, and weather descriptions.
-- **5-Day Forecast**: Provides a detailed 5-day weather forecast with temperature trends and weather conditions.
+- **5-Hour Forecast**: Provides a detailed 5-hour weather forecast with temperature trends and weather conditions.
 - **Responsive Design**: Optimized for both mobile and web platforms, ensuring a consistent user experience across devices.
 - **Dark and Light Modes**: Supports theme toggling to enhance user experience in different lighting conditions.
 - **Custom Components**: Utilizes reusable components for scalability and maintainability.
@@ -98,27 +98,3 @@ Run unit tests with:
 ```bash
 yarn test
 ```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a new branch**
-
-   ```bash
-   git checkout -b feature/new-feature
-   ```
-
-3. **Commit your changes**
-4. **Push to the branch**
-
-   ```bash
-   git push origin feature/new-feature
-   ```
-
-5. **Open a pull request**
-
-## License
-
-This project is licensed under the MIT License.

@@ -63,35 +63,9 @@ function RootLayoutNav() {
       />
       <Stack>
         <Stack.Screen
-          name="(tabs)"
+          name="index"
           options={{
             headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="modal"
-          options={{
-            title: "About",
-            presentation: "modal",
-            animation: "slide_from_right",
-            gestureEnabled: true,
-            gestureDirection: "horizontal",
-            headerRight: () => (
-              <Link href="/modal" asChild>
-                <Button
-                  mr="$2"
-                  size="$2"
-                  bg="$colorTransparent"
-                  color="$purple12"
-                >
-                  👋
-                </Button>
-              </Link>
-            ),
-            contentStyle: {
-              backgroundColor: theme.background.val,
-            },
           }}
         />
       </Stack>

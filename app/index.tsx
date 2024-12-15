@@ -3,13 +3,22 @@ import { Text, YStack } from "tamagui";
 import { useWeather } from "../hooks/useWeather";
 import WeatherDisplay from "../components/WeatherDisplay";
 import WeatherInput from "../components/WeatherInput";
+import { Keyboard } from "react-native";
 
 export default function WeatherScreen() {
   const { weather, error, loading, getWeather } = useWeather();
   const [city, setCity] = useState("");
 
   return (
-    <YStack f={1} ai="center" p="$10" bg="$background">
+    <YStack
+      f={1}
+      onTouchStart={() => Keyboard.dismiss()}
+      ai="center"
+      p="$10"
+      bg="$background"
+      pt="$15"
+      gap="$2"
+    >
       <WeatherInput
         city={city}
         setCity={setCity}

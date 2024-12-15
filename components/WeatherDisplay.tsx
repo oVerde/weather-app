@@ -17,7 +17,7 @@ const WeatherDisplay: React.FC<WeatherDisplayProps> = ({ weather }) => (
     </XStack>
     <YStack gap="$1">
       {weather.forecast.map((item, index) => (
-        <XStack key={index} justifyContent="space-between">
+        <XStack key={index} gap="$4" justifyContent="space-between">
           <Text>{item.time}</Text>
           <Text>{item.temperature}°C</Text>
         </XStack>
